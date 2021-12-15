@@ -96,20 +96,25 @@ window.addEventListener('', async() => {
 
 function displayCurrentGameEl() {
     // clear out the current game div
-
+    currentGameEl.textContent = '';
     // change the label to show team one's name;
+    teamOneLabel.textContent = currentGame.name1;
     // change the label to show team two's name;
-
+    teamTwoLabel.textContent = currentGame.name2;
     // call the render game function to create a game element
-    
+    const gameEl = renderGame(currentGame);
+    gameEl.classList.add('current');
     // append the element to the cleared out current game div
+    currentGameEl.append(gameEl);
 }
 
 
 function displayAllGames() {
     // clear out the past games list in the DOM
-
+    pastGamesEl.textContent = '';
     // fetch and loop through the past games 
+    // getGames()
+    
     // render and append a past game for each past game in state
 }
 
