@@ -21,7 +21,8 @@ export async function getGames() {
     // select all games from the games table
     const response = await client
         .from('games')
-        .select({ user_id: client.auth.user().id, });
+        .select();
+
     return checkError(response);    
 }
 
