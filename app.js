@@ -1,5 +1,5 @@
+/* eslint-disable no-console */
 import { 
-    createGame,
     redirectToGames, 
     signInUser, 
     signupUser,
