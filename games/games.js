@@ -108,11 +108,12 @@ logoutButton.addEventListener('click', () => {
  // on load . . .
 window.addEventListener('load', async() => {
     // fetch all games
-    const allGames = await getGames();
+    // const allGames = await getGames();
     // check if there are any
     // if there are, set those as the initial state of pastGames
     
     // then display all the games (hint: call displayAllGames())
+    // await displayAllGames();
 });
 
 
