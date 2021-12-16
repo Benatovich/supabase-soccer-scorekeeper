@@ -30,8 +30,6 @@ let currentGame = {
     score2: 0,
 };
 
-console.log(getGames());
-
 nameForm.addEventListener('submit', (e) => {
     // don't forget to prevent the default form behavior!
     e.preventDefault();
@@ -77,12 +75,17 @@ teamTwoSubtractButton.addEventListener('click', () => {
     // display updated data in the current game div
     displayCurrentGameEl();
 });
-// console.log(createGame(currentGame));
+
 finishGameButton.addEventListener('click', async() => {
     // create a new game using the current game state 
-    createGame(currentGame);
+    const newGame = await createGame(currentGame);
+    const allGames = await getGames();
     // re-fetch the games to get the updated state
-    getGames();
+    pastGamesEl.textContent = '';
+    for (let game of allGames) {
+        const pastGames = renderGame(game);
+        pastGamesEl.append(pastGames);
+    }
     // reassign the past games state to the re-fetched, updated games
     
     displayAllGames();
@@ -125,20 +128,6 @@ function displayCurrentGameEl() {
     currentGameEl.append(gameEl);
 }
 
-
-// async function displayAllGames() {
-//     // clear out the past games list in the DOM
-//     pastGamesEl.textContent = '';
-//     // fetch and loop through the past games 
-//     getGames();
-//     for (let game of games) {
-//         // render and append a past game for each past game in state
-//         const gameEl = renderGame(game);
-//         gameEl.classList.add('past');
-//         pastGamesEl.append(gameEl);
-//     }
-
-// }
 async function displayAllGames() {
     // clear out the past games list in the DOM
     pastGamesEl.textContent = '';
