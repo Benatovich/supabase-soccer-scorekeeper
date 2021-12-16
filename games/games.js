@@ -79,7 +79,7 @@ teamTwoSubtractButton.addEventListener('click', () => {
 
 finishGameButton.addEventListener('click', async() => {
     // create a new game using the current game state 
-    const newGame = await createGame(currentGame);
+    await createGame(currentGame);
     const allGames = await getGames();
     // re-fetch the games to get the updated state
     pastGamesEl.textContent = '';
